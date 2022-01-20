@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+<meta charset="ISO-8859-1">
+<title>GirlBoss</title>
+
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+	integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+	crossorigin="anonymous">
+	
+	 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
+	
+	<link rel="stylesheet" href="css/style.css">
+
+</head>
+<body>
+<header class="header">
+	<!-- create navigation bar ( header) -->
+	
+			<a href="#" class="logo"> <i class="fas fa-hiking"></i> filsanCS </a>
+
+    <nav class="navbar">
+        <div id="nav-close" class="fas fa-times"></div>
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#packages">Products</a>
+        <a href="#reviews">Reviews</a>
+        <a href="#services">Services</a>
+        <ul sec:authorize="isAuthenticated()"><a th:href="@{/logout}">Logout</a></ul>
+   </nav>
+			
+	
+	</header>
+
+	<!-- header section ends -->
+
+
+
+<!-- home section starts  -->
+
+<section class="home" id="home">
+
+    <div class="swiper home-slider">
+
+        <div class="swiper-wrapper">
+
+            <div class="swiper-slide">
+                <div class="box" style="background: url(images/home-bg1a.jpeg) no-repeat;">
+                    <div class="content">
+                        <span>never stop</span>
+                        <h3>dreaming</h3>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit unde ex molestias soluta consequatur saepe aliquam, excepturi delectus consequuntur minus!</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="swiper-slide">
+                <div class="box second" style="background: url(images/home-bg2a.jpeg) no-repeat;">
+                    <div class="content">
+                        <span>dreams can</span>
+                        <h3>come true</h3>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit unde ex molestias soluta consequatur saepe aliquam, excepturi delectus consequuntur minus!</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="swiper-slide">
+                <div class="box" style="background: url(images/home-bg3a.jpeg) no-repeat;">
+                    <div class="content">
+                        <span>explore the</span>
+                        <h3>new world</h3>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit unde ex molestias soluta consequatur saepe aliquam, excepturi delectus consequuntur minus!</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+
+    </div>
+
+</section>
+
+<section class="employee" id="employee">
+
+<div class="container my-2">
+	<h1>Personal Employee Management System</h1>
+	
+		<table border="1" class = "table table-striped table-responsive-md">
+			<thead>
+				<tr>
+					<th>
+						<a th:href="@{'/employeePage/' + ${currentPage} + '?sortField=firstName&sortDir=' + ${reverseSortDir}}">
+							Employee First Name</a>
+					</th>
+					<th>
+					<a th:href="@{'/employeePage/' + ${currentPage} + '?sortField=lastName&sortDir=' + ${reverseSortDir}}">
+							Employee Last Name</a>
+					</th>
+					<th>
+					<a th:href="@{'/employeePage/' + ${currentPage} + '?sortField=email&sortDir=' + ${reverseSortDir}}">
+							Employee Email</a>
+					</th>
+				</tr>
+			</thead>
+			
+		</table>
+		
+		<a th:href = "@{/api/employees}" class="btn btn-primary btn-sm mb-3"> Show Employees </a>
+		<br>
+		<br> 
+		
+	</div>
+
+</section>
+
+<!-- home section ends -->
+
+<!-- category section starts  -->
+
+<section class="category">
+
+    <h1 class="heading">Work Place!</h1>
+
+    <div class="box-container">
+
+        <div class="box">
+            <img src="images/category-1a.jpeg" alt="">
+            <h3>Collaboration</h3>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laborum, id.</p>
+            <a href="#" class="btn">read more</a> 
+        	
+        </div>
+
+        <div class="box">
+            <img src="images/category-2a.jpeg" alt="">
+            <h3>Inclusion</h3>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laborum, id.</p>
+            <a href="#" class="btn">read more</a>
+        </div>
+
+        <div class="box">
+            <img src="images/category-3a.jpeg" alt="">
+            <h3>Optimism</h3>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laborum, id.</p>
+            <a href="#" class="btn">read more</a>
+        </div>
+
+        <div class="box">
+            <img src="images/category-4a.jpeg" alt="">
+            <h3>Diversity</h3>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laborum, id.</p>
+            <a href="#" class="btn">read more</a>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- category section ends -->
+
+<!-- about section starts  -->
+
+<section class="about" id="about">
+
+    <div class="image">
+        <img src="images/about-img1a.jpeg" alt="">
+    </div>
+
+    <div class="content">
+        <h3>Owning Your Buisness! <h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque voluptates corrupti natus necessitatibus beatae voluptatibus, deserunt quo soluta minima libero laborum, corporis error esse vitae placeat blanditiis reiciendis vel? Minima.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident dicta doloremque placeat porro, ipsam quia at beatae atque odit iste?</p>
+        <a href="#" class="btn">read more</a>
+    </div>
+
+</section>
+
+<!-- about section ends -->
+
+<!-- packages section starts  -->
+
+<section class="packages" id="packages">
+
+    <h1 class="heading">popular e-books</h1>
+
+    <div class="box-container">
+
+        <div class="box">
+            <div class="image">
+                <img src="images/img-4a.jpeg" alt="">
+            </div>
+            <div class="content">
+                <h3>featured learning course</h3>
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Numquam, eos.</p>
+                <div class="price">$250 - $450</div>
+                <a href="#" class="btn">explore now</a>
+            </div>
+        </div>
+
+        <div class="box">
+            <div class="image">
+                <img src="images/img-5a.jpeg" alt="">
+            </div>
+            <div class="content">
+                <h3>featured learning course</h3>
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Numquam, eos.</p>
+                <div class="price">$250 - $450</div>
+                <a href="#" class="btn">explore now</a>
+            </div>
+        </div>
+
+        <div class="box">
+            <div class="image">
+                <img src="images/img-6a.jpeg" alt="">
+            </div>
+            <div class="content">
+                <h3>featured learning course</h3>
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Numquam, eos.</p>
+                <div class="price">$250 - $450</div>
+                <a href="#" class="btn">explore now</a>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- packages section ends -->
+
+<!-- reviews section starts  -->
+
+<section class="reviews" id="reviews">
+
+    <h1 class="heading">client's reviews</h1>
+
+    <div class="swiper review-slider">
+
+        <div class="swiper-wrapper">
+
+            <div class="swiper-slide slide" backgroundColor>
+                <p class="text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia quidem laborum pariatur alias, culpa illum quaerat, aliquid laboriosam voluptatem nisi repellat obcaecati, adipisci esse ab delectus dolorum ut recusandae ipsam?</p>
+                <div class="user">
+                    <img src="images/pic-1.png" alt="">
+                    <div class="info">
+                        <h3>john deo</h3>
+                        <span>GirlBoss</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="swiper-slide slide">
+                <p class="text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia quidem laborum pariatur alias, culpa illum quaerat, aliquid laboriosam voluptatem nisi repellat obcaecati, adipisci esse ab delectus dolorum ut recusandae ipsam?</p>
+                <div class="user">
+                    <img src="images/pic-2.png" alt="">
+                    <div class="info">
+                        <h3>john deo</h3>
+                        <span>GirlBoss</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="swiper-slide slide">
+                <p class="text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia quidem laborum pariatur alias, culpa illum quaerat, aliquid laboriosam voluptatem nisi repellat obcaecati, adipisci esse ab delectus dolorum ut recusandae ipsam?</p>
+                <div class="user">
+                    <img src="images/pic-3.png" alt="">
+                    <div class="info">
+                        <h3>john deo</h3>
+                        <span>GirlBoss</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="swiper-slide slide">
+                <p class="text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia quidem laborum pariatur alias, culpa illum quaerat, aliquid laboriosam voluptatem nisi repellat obcaecati, adipisci esse ab delectus dolorum ut recusandae ipsam?</p>
+                <div class="user">
+                    <img src="images/pic-4.png" alt="">
+                    <div class="info">
+                        <h3>john deo</h3>
+                        <span>GirlBoss</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="swiper-slide slide">
+                <p class="text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia quidem laborum pariatur alias, culpa illum quaerat, aliquid laboriosam voluptatem nisi repellat obcaecati, adipisci esse ab delectus dolorum ut recusandae ipsam?</p>
+                <div class="user">
+                    <img src="images/pic-5.png" alt="">
+                    <div class="info">
+                        <h3>john deo</h3>
+                        <span>GirlBoss</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="swiper-slide slide">
+                <p class="text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia quidem laborum pariatur alias, culpa illum quaerat, aliquid laboriosam voluptatem nisi repellat obcaecati, adipisci esse ab delectus dolorum ut recusandae ipsam?</p>
+                <div class="user">
+                    <img src="images/pic-6.png" alt="">
+                    <div class="info">
+                        <h3>john deo</h3>
+                        <span>GirlBoss</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- reviews section ends -->
+
+<!-- services section starts  -->
+
+<section class="services" id="services">
+
+    <h1 class="heading"> what we offer </h1>
+
+    <div class="box-container">
+
+        <div class="box">
+            <img src="images/serv-1.png" alt="">
+            <h3>Backend/h3>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Repellendus, nihil?</p>
+            <a href="#" class="btn">read more</a>
+        </div>
+
+        <div class="box">
+            <img src="images/serv-2.png" alt="">
+            <h3>Bootstrap</h3>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Repellendus, nihil?</p>
+            <a href="#" class="btn">read more</a>
+        </div>
+
+        <div class="box">
+            <img src="images/serv-3.png" alt="">
+            <h3>Mysql</h3>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Repellendus, nihil?</p>
+            <a href="#" class="btn">read more</a>
+        </div>
+
+        <div class="box">
+            <img src="images/serv-4.png" alt="">
+            <h3>Java</h3>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Repellendus, nihil?</p>
+            <a href="#" class="btn">read more</a>
+        </div>
+
+        <div class="box">
+            <img src="images/serv-5.png" alt="">
+            <h3>CSS</h3>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Repellendus, nihil?</p>
+            <a href="#" class="btn">read more</a>
+        </div>
+
+        <div class="box">
+            <img src="images/serv-6.png" alt="">
+            <h3>HTML</h3>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Repellendus, nihil?</p>
+            <a href="#" class="btn">read more</a>
+        </div>
+        
+    </div>
+
+</section>
+
+<!-- services section ends -->
+
+
+<!-- footer section starts  -->
+
+<section class="footer">
+
+    <div class="box-container">
+
+        <div class="box">
+            <h3>quick links</h3>
+            <a href="#home">Home</a>
+        	<a href="#about">About</a>
+       	    <a href="#category">Employees</a>
+       	    <a href="#packages">Services</a>
+            <a href="#reviews">Reviews</a>
+        </div>
+
+        <div class="box">
+            <h3>contact info</h3>
+            <a href="#"> <i class="fas fa-phone"></i> +123-456-7890 </a>
+            <a href="#"> <i class="fas fa-envelope"></i> filsancs@casestudy.com</a>
+            <a href="#"> <i class="fas fa-map"></i> Columbus, OH 43223 </a>
+        </div>
+
+        <div class="box">
+            <h3>follow us</h3>
+            <a href="#"> <i class="fab fa-facebook-f"></i> facebook </a>
+            <a href="#"> <i class="fab fa-twitter"></i> twitter </a>
+            <a href="#"> <i class="fab fa-instagram"></i> instagram </a>
+            <a href="#"> <i class="fab fa-linkedin"></i> linkedin </a>
+            <a href="#"> <i class="fab fa-github"></i> github </a>
+        </div>
+
+    </div>
+
+    
+
+</section>
+
+<!-- footer section ends -->
+
+<script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+
+<!-- custom js file link  -->
+<script src="js/script.js"></script>
+<script src="js/start.js"></script>
+
+</body>
+</html>
